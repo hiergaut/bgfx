@@ -132,6 +132,20 @@ namespace bgfx
 		, uint64_t _flags = BGFX_TEXTURE_NONE|BGFX_SAMPLER_NONE
 		);
 
+    /// Retrieve the native texture handle.
+    ///
+    /// @attention It's expected you understand some bgfx internals before you
+    ///   use this call.
+    ///
+    /// @param[in] _handle Texture handle.
+    ///
+    /// @returns Native API pointer to texture. If result is 0, texture is not created yet from the
+    ///   main thread.
+    ///
+    /// @warning Must be called only on render thread.
+    ///
+    uintptr_t getInternal(TextureHandle _handle);
+
 } // namespace bgfx
 
 #endif // BGFX_PLATFORM_H_HEADER_GUARD
